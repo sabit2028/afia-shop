@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Product Details</h1>
+    </header>
+    <main>
+        <section id="product-details" class="product-details"></section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+
+            // Assuming products data is the same or fetched again
+            const products = [
+                // Include the same products data or fetch it again
+                {
+                    id: '1',
+                    image: 'product2.webp',
+                    name: 'Apple MacBook Pro MTL73 M3 Chip 2.75 to 4.05GHz',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 100.00
+                },
+                {
+                    id: '2',
+                    image: 'product1.webp',
+                    name: 'ASUS Vivobook 15 X515MA-BQ636T Intel Celeron N4020',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 15.00
+                    
+                },
+                {
+                    id: '3',
+                    image: 'product3.webp',
+                    name: 'iPhone 16 Pro Max 256GB/512GB/1TB (All Region)',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 20.00
+                },
+                {
+                    id: '4',
+                    image: 'product4.webp',
+                    name: 'Samsung Galaxy S24 Ultra 5G (12GB/256GB)',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 25.00
+                },
+                {
+                    id: '5',
+                    image: 'product5.webp',
+                    name: 'Stainless Steel Analog Wrist Watch',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 30.00
+                },
+                {
+                    id: '6',
+                    image: 'product6.webp',
+                    name: 'Nova NV-9006 Fashion Hair Dryer',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 35.00
+                },
+                {
+                    id: '7',
+                    image: 'product7.webp',
+                    name: 'Ponds - Ponds Vanishing Cream',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 40.00
+                },
+                {
+                    id: '8',
+                    image: 'product8.webp',
+                    name: 'Box Balance Heel Shoes For Women',
+                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste vero deleniti vel doloribus mollitia accusantium tempora eum, perspiciatis, sequi repudiandae cum assumenda maxime velit quia beatae. Consequuntur, quaerat sunt? Expedita nemo aut veritatis eius modi libero blanditiis eum distinctio, aliquid repellendus, sed commodi ullam? Accusamus molestiae odit, dolorum porro animi minus provident debitis praesentium dolores saepe, maxime quasi! Architecto aliquid, rem optio nisi aperiam in ut magni repellendus error. Debitis consequuntur eaque optio ipsum dolorum ut sapiente at praesentium sint eius fugit, officiis dolorem veniam dicta modi minima! Eum nemo illo ipsam aspernatur voluptatibus neque non quis libero amet?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel reprehenderit vero temporibus ea. Labore unde enim aperiam odio nisi deserunt?',
+                    price: 45.00
+                }
+            ];
+
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                const productDetails = document.getElementById('product-details');
+                productDetails.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>${product.description}</p>
+                    <p class="product-price">Price $${product.price}</p>
+                `;
+            }
+        });
+    </script>
+    
+</body>
+</html>
